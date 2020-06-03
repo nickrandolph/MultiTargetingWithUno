@@ -1,0 +1,5 @@
+<Project>
+	<ItemGroup>
+		<PackageReference Include="Uno.UniversalImageLoader" Version="1.9.32" />
+	</ItemGroup>
+</Project>

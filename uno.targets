@@ -1,0 +1,13 @@
+<Project>
+  <ItemGroup>
+     <PackageReference Include="Uno.Core" Version="2.0.0" />
+  </ItemGroup>
+
+  <Import Project="uno.ui.targets"  Condition="'$(IsWindows)' != 'true' and '$(IsWindowsHeadProject)' != 'true'"/> 
+
+  <Import Project="uno.android.targets"  Condition="'$(IsAndroidHeadProject)' == 'true'"/>
+  <Import Project="uno.wasm.targets"  Condition="'$(IsWasmHeadProject)' == 'true'"/>
+
+  <Import Project="uno.debugging.targets"  Condition="'$(Configuration)' == 'Debug'"/> 
+</Project>
+

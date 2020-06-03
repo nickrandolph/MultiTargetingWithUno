@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup>
+  <PackageReference Include="Uno.UI" Version="2.4.4"  />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+<Project>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DefineConstants>$(DefineConstants);TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="$(IsWASM)">
+    <DefineConstants>$(DefineConstants);NETSTANDARD;PORTABLE;__WASM__</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(IsWindows)">
+    <DefineConstants>$(DefineConstants);NETFX_CORE;XAML;WINDOWS;WINDOWS_UWP;UWP</DefineConstants>
+    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(IsiOS)">
+    <DefineConstants>$(DefineConstants);MONO;UIKIT;COCOA;APPLE;IOS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(IsMac)">
+    <DefineConstants>$(DefineConstants);MONO;COCOA;APPLE;MAC</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(IsAndroid)">
+    <DefineConstants>$(DefineConstants);MONO;ANDROID</DefineConstants>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+  </PropertyGroup>
+
+
+</Project>

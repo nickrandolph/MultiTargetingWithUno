@@ -1,0 +1,6 @@
+<Project>
+<ItemGroup>
+  <PackageReference Include="Uno.UI.RemoteControl" Version="2.4.4"  />
+  </ItemGroup>
+  <Import Project="uno.debugging.hotrestart.targets" Condition=" '$(IsiOSHeadProject)' == 'true' " />
+</Project>

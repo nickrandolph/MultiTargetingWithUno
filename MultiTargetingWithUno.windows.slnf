@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "MultiTargetingWithUno.sln",
+    "projects": [
+      "MultiTargetingWithUno.Core\\MultiTargetingWithUno.Core.csproj",
+      "MultiTargetingWithUno.UI\\MultiTargetingWithUno.UI.csproj",
+      "MultiTargetingWithUno\\MultiTargetingWithUno.UWP\\MultiTargetingWithUno.UWP.csproj",
+      "MultiTargetingWithUno\\MultiTargetingWithUno.Shared\\MultiTargetingWithUno.Shared.shproj"
+    ]
+  }
+}

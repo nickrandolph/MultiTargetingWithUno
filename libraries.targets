@@ -1,0 +1,38 @@
+<Project>
+	<PropertyGroup Condition=" '$(TargetsToBuild)' == 'All' ">
+		<TargetFrameworks>netstandard2.0;xamarinios10;xamarinmac20;monoandroid10.0;</TargetFrameworks>
+		<TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">uap10.0.16299;$(TargetFrameworks)</TargetFrameworks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(TargetsToBuild)' != 'All' ">
+		<TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Android' ">monoandroid10.0;</TargetFrameworks>
+		<TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Windows' ">uap10.0.16299</TargetFrameworks>
+		<TargetFrameworks Condition=" '$(TargetsToBuild)' == 'iOS' ">xamarinios10</TargetFrameworks>
+		<TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Mac' ">xamarinmac20</TargetFrameworks>
+		<TargetFrameworks Condition=" '$(TargetsToBuild)' == 'Wasm' ">netstandard2.0</TargetFrameworks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="**\*.netstandard.cs" Condition="'$(IsWASM)' != 'true'"/>
+		<Compile Remove="**\*.droid.cs" Condition="'$(IsAndroid)' != 'true'"/>
+		<Compile Remove="**\*.mac.cs" Condition="'$(IsMac)' != 'true'" />
+		<Compile Remove="**\*.ios.cs" Condition="'$(IsiOS)' != 'true'"/>
+		<Compile Remove="**\*.windows.cs" Condition="'$(IsWindows)' != 'true'" />
+	</ItemGroup>
+	
+	<PropertyGroup>
+  		<GenerateLibraryLayout>true</GenerateLibraryLayout>
+		  <DefaultLanguage>en</DefaultLanguage>
+  	</PropertyGroup>
+
+
+    <ItemGroup>
+		<Page Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+		<Compile Update="**\*.xaml.cs">
+			<DependentUpon>%(Filename)</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<UpToDateCheckInput Include="**\*.xaml" Exclude="bin\**\*.xaml;obj\**\*.xaml" />
+	</ItemGroup>
+</Project>
